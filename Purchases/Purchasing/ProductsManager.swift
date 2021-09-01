@@ -41,16 +41,13 @@ class ProductsManager: NSObject {
                 }
             }
         } else {
-            self.products(withIdentifiers: identifiers) { skProducts in
-                let wrappedProductsArray = skProducts.map { SK1ProductDetails(sk1Product: $0) }
-                completion(Set(wrappedProductsArray))
-            }
+            productsFetcherSK1.products(withIdentifiers: identifiers, completion: completion)
         }
     }
 
     func products(withIdentifiers identifiers: Set<String>,
                   completion: @escaping (Set<SKProduct>) -> Void) {
-        return productsFetcherSK1.products(withIdentifiers: identifiers, completion: completion)
+        return productsFetcherSK1.sk1Products(withIdentifiers: identifiers, completion: completion)
     }
 
     func cacheProduct(_ product: SKProduct) {
