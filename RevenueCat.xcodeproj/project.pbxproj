@@ -921,6 +921,7 @@
 				F5BE423F26962ACF00254A30 /* ReceiptRefreshPolicy.swift */,
 				3597020F24BF6A710010506E /* TransactionsFactory.swift */,
 				FECF627761D375C8431EB866 /* ProductDetails.swift */,
+				006E105DDA8D0D0FA32D690C /* StoreKit2 */,
 			);
 			path = Purchasing;
 			sourceTree = "<group>";
