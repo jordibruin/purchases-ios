@@ -1425,7 +1425,7 @@ class PurchasesTests: XCTestCase {
     func testCallsShouldAddPromoPaymentDelegateMethod() {
         setupPurchases()
         let product = MockLegacySKProduct(mockProductIdentifier: "mock_product")
-        let payment = SKPayment.init()
+        let payment = SKPayment()
 
         _ = storeKitWrapper.delegate?.storeKitWrapper(storeKitWrapper,
                                                       shouldAddStorePayment: payment,
@@ -1437,7 +1437,7 @@ class PurchasesTests: XCTestCase {
     func testShouldAddPromoPaymentDelegateMethodReturnsFalse() {
         setupPurchases()
         let product = MockLegacySKProduct(mockProductIdentifier: "mock_product")
-        let payment = SKPayment.init()
+        let payment = SKPayment()
 
         let result = storeKitWrapper.delegate?.storeKitWrapper(storeKitWrapper,
                                                                shouldAddStorePayment: payment,
