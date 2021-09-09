@@ -40,7 +40,7 @@ actor ProductsFetcherSK2 {
             #if arch(arm64)
 
             let storeKitProducts = try await StoreKit.Product.products(for: identifiers)
-            let sk2ProductDetails = storeKitProducts.map { SK2ProductDetails(SK2Product: $0) }
+            let sk2ProductDetails = storeKitProducts.map { SK2ProductDetails(sk2Product: $0) }
             return Set(sk2ProductDetails)
             #else
             return Set()
