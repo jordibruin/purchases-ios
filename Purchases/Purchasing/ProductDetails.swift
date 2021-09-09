@@ -63,8 +63,8 @@ public typealias NewSKProduct = StoreKit.Product
     // todo: remove when this gets fixed.
     // limiting to arm architecture since builds on beta 5 fail if other archs are included
     #if arch(arm64)
-    init(sk2Product: StoreKit.Product) {
-        self.underlyingNewSKProduct = sk2Product
+    init(newSKProduct: StoreKit.Product) {
+        self.underlyingNewSKProduct = newSKProduct
     }
 
     public let underlyingNewSKProduct: StoreKit.Product

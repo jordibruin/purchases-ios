@@ -564,9 +564,9 @@ private extension PurchasesOrchestrator {
         // limiting to arm architecture since builds on beta 5 fail if other archs are included
         #if arch(arm64)
 
-        let sk2Product = sk2ProductDetails.underlyingNewSKProduct
+        let newSKProduct = sk2ProductDetails.underlyingNewSKProduct
         Task {
-            let result = try await sk2Product.purchase()
+            let result = try await newSKProduct.purchase()
             await storeKit2Listener.handle(purchaseResult: result)
             // todo: nicer handling, improve the userCancelled case
             syncPurchases(receiptRefreshPolicy: .always, isRestore: false) { maybePurchaserInfo, maybeError in
