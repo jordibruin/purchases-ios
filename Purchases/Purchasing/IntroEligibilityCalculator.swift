@@ -76,8 +76,8 @@ class IntroEligibilityCalculator {
 @available(iOS 12.0, macOS 10.14, macCatalyst 13.0, tvOS 12.0, watchOS 6.2, *)
 private extension IntroEligibilityCalculator {
 
-    func checkIntroEligibility(candidateProducts: Set<LegacySKProduct>,
-                               purchasedProductsWithIntroOffers: Set<LegacySKProduct>) -> [String: NSNumber] {
+    func checkIntroEligibility(candidateProducts: Set<SK1Product>,
+                               purchasedProductsWithIntroOffers: Set<SK1Product>) -> [String: NSNumber] {
         var result: [String: NSNumber] = [:]
         for candidate in candidateProducts {
             let usedIntroForProductIdentifier = purchasedProductsWithIntroOffers

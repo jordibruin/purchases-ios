@@ -595,7 +595,7 @@ class PurchasesTests: XCTestCase {
 
     func testIsAbleToFetchProducts() {
         setupPurchases()
-        var products: [LegacySKProduct]?
+        var products: [SK1Product]?
         let productIdentifiers = ["com.product.id1", "com.product.id2"]
         purchases!.products(identifiers: productIdentifiers) { (newProducts) in
             products = newProducts
@@ -1810,7 +1810,7 @@ class PurchasesTests: XCTestCase {
         mockOfferingsManager.stubbedOfferingsCompletionResult = (offeringsFactory.createOfferings(fromProductDetailsByID: [:], data: [:]), nil)
         self.purchases?.offerings { (newOfferings, _) in
             let productDetails = newOfferings!["base"]!.monthly!.productDetails;
-            let product = (productDetails as! SK1ProductDetails).underlyingLegacySKProduct
+            let product = (productDetails as! SK1ProductDetails).underlyingSK1Product
             self.purchases?.purchase(product: product) { (tx, info, error, userCancelled) in
 
             }
@@ -2470,7 +2470,7 @@ class PurchasesTests: XCTestCase {
 
     func testNilProductIdentifier() {
         setupPurchases()
-        let product = LegacySKProduct()
+        let product = SK1Product()
         var receivedError: Error?
         self.purchases?.purchase(product: product) { (tx, info, error, userCancelled) in
             receivedError = error
@@ -2609,7 +2609,7 @@ class PurchasesTests: XCTestCase {
     }
 
     func testProductIsRemovedButPresentInTheQueuedTransaction() {
-        self.mockProductsManager.stubbedProductsCompletionResult = Set<LegacySKProduct>()
+        self.mockProductsManager.stubbedProductsCompletionResult = Set<SK1Product>()
         setupPurchases()
         let product = MockLegacySKProduct(mockProductIdentifier: "product")
 
