@@ -63,8 +63,8 @@ public typealias SK2Product = StoreKit.Product
     // todo: remove when this gets fixed.
     // limiting to arm architecture since builds on beta 5 fail if other archs are included
     #if arch(arm64)
-    init(SK2Product: StoreKit.Product) {
-        self.underlyingSK2Product = SK2Product
+    init(sk2Product: StoreKit.Product) {
+        self.underlyingSK2Product = sk2Product
     }
 
     public let underlyingSK2Product: StoreKit.Product
@@ -90,8 +90,8 @@ public typealias SK2Product = StoreKit.Product
 
 @objc(RCSK1ProductDetails) public class SK1ProductDetails: ProductDetails {
 
-    @objc public init(SK1Product: SK1Product) {
-        self.underlyingSK1Product = SK1Product
+    @objc public init(sk1Product: SK1Product) {
+        self.underlyingSK1Product = sk1Product
     }
 
     @objc public let underlyingSK1Product: SK1Product
