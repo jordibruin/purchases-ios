@@ -595,7 +595,7 @@ class PurchasesTests: XCTestCase {
 
     func testIsAbleToFetchProducts() {
         setupPurchases()
-        var products: [SKProduct]?
+        var products: [LegacySKProduct]?
         let productIdentifiers = ["com.product.id1", "com.product.id2"]
         purchases!.products(identifiers: productIdentifiers) { (newProducts) in
             products = newProducts
@@ -2470,7 +2470,7 @@ class PurchasesTests: XCTestCase {
 
     func testNilProductIdentifier() {
         setupPurchases()
-        let product = SKProduct()
+        let product = LegacySKProduct()
         var receivedError: Error?
         self.purchases?.purchase(product: product) { (tx, info, error, userCancelled) in
             receivedError = error
@@ -2609,7 +2609,7 @@ class PurchasesTests: XCTestCase {
     }
 
     func testProductIsRemovedButPresentInTheQueuedTransaction() {
-        self.mockProductsManager.stubbedProductsCompletionResult = Set<SKProduct>()
+        self.mockProductsManager.stubbedProductsCompletionResult = Set<LegacySKProduct>()
         setupPurchases()
         let product = MockSKProduct(mockProductIdentifier: "product")
 
